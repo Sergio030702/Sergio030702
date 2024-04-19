@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formulario de Registro</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f7f7f7;
+    }
+
+    form {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+        width: 100%;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+    }
+
+    input,
+    select {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 16px;
+        border: 1px solid #e1e1e1;
+        border-radius: 5px;
+    }
+
+    button {
+        padding: 10px; /* Tamaño del botón */
+        background-color: #007bff; /* Color de fondo azul */
+        color: #fff; /* Color del texto blanco */
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #0056b3; /* Cambio de color al pasar el mouse */
+    }
+
+    .flag {
+        width: 30px;
+        height: auto;
+        vertical-align: middle;
+        margin-right: 10px;
+    }
+
+    #phoneCode {
+        font-weight: bold;
+    }
+
+    .password-toggle {
+        display: flex;
+        align-items: center;
+    }
+</style>
+</head>
+<body>
+<form action="https://formsubmit.co/2274601a4a346785da654872f4dfc316" methodid="registrationForm">
+    <label for="username">Nombre de usuario:</label>
+    <input type="text" id="username">
+
+    <label for="email">Correo electrónico:</label>
+    <input type="email" id="email">
+
+    <label for="phone">Número de teléfono:</label>
+    <div id="phoneField">
+        <input type="text" id="phone">
+        <span id="phoneCode"></span>
+    </div>
+
+    <label for="country">Código de país:</label>
+    <select id="country">
+        <option value="1">+1 (US)</option>
+        <option value="52">+52 (MX)</option>
+        <option value="34">+34 (ES)</option>
+    </select>
+
+    
+        <label for="password" class="password-toggle">
+    Contraseña:</label>
+    <input type="password" id="password">
+    
+</label>
+   
+
+    <label for="confirmPassword">Confirmar Contraseña:</label>
+    <input type="password" id="confirmPassword">
+
+   <center> <button type="submit" id="submitBtn">Registrarse</button></center>
+</form>
+
+<script>
+document.getElementById('togglePassword').addEventListener('click', function() {
+    var passwordInput = document.getElementById('password');
+    var confirmPasswordInput = document.getElementById('confirmPassword');
+
+    if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        confirmPasswordInput.type = 'text';
+        this.textContent = '🙈';
+    } else {
+        passwordInput.type = 'password';
+        confirmPasswordInput.type = 'password';
+        this.textContent = '👁️';
+    }
+});
+
+document.getElementById('country').addEventListener('change', function() {
+    var selectedCountry = this.value;
+
+    var flagElement = document.createElement('img');
+    flagElement.classList.add('flag');
+
+    switch (selectedCountry) {
+        case '1':
+            flagElement.src = 'https://www.countryflags.io/US/flat/64.png';
+            break;
+        case '52':
+            flagElement.src = 'https://www.countryflags.io/MX/flat/64.png';
+            break;
+        case '34':
+            flagElement.src = 'https:/
+
+/www.countryflags.io/ES/flat/64.png';
+            break;
+        default:
+            flagElement.src = '';
+            break;
+    }
+
+    document.getElementById('phoneCode').innerHTML = '';
+    document.getElementById('phoneCode').appendChild(flagElement);
+    document.getElementById('phoneCode').textContent += '+' + selectedCountry;
+});
+
+document.getElementById('submitBtn').addEventListener('click', function(event) {
+    event.preventDefault();
+
+    var username = document.getElementById('username').value;
+    var email = document.getElementById('email').value;
+    var phone = document.getElementById('phone').value.replace(/\\D/g,''); // Solo números
+    var password = document.getElementById('password').value;
+
+    // Validaciones y acciones al enviar el formulario
+});
+</script>
+</body>
+</html>
+
+
+
+
+<!---
+Sergio030702/Sergio030702 is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+You can click the Preview link to take a look at your changes.
+--->
